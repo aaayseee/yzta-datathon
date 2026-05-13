@@ -9,8 +9,8 @@ import xgboost as xgb
 import catboost as cb
 
 # 1. Verileri Yükle
-train = pd.read_csv("train.csv")
-test = pd.read_csv("test_x.csv")
+train = pd.read_csv("data/train.csv")
+test = pd.read_csv("data/test_x.csv")
 
 # 2. Üst Düzey Özellik Mühendisliği (Grandmaster Features)
 def create_advanced_features(df):
@@ -123,5 +123,5 @@ submission = pd.DataFrame({
     'id': test['id'],
     'bilissel_performans_skoru': final_test_preds
 })
-submission.to_csv('submission_stacking_pro.csv', index=False)
+submission.to_csv('submissions/submission_stacking_pro.csv', index=False)
 print("Şampiyonluk modeli 'submission_stacking_pro.csv' dosyasına kaydedildi!")
